@@ -31,83 +31,13 @@ body, html{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    /* gap: 1rem; */
+    min-height: 100vh;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 1rem;
 }
-
-
-.the-icon-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 16rem;
-    width: 16rem;
-    border-radius: 100%;
-    z-index: 2;
-    cursor: pointer;
-    transition: 1s scale ease-out;
-}
-
-.the-icon{
-    width: 80%;
-    height: 80%;
-    background-color: white;
-    border-radius: 100%;
-    z-index: 3;
-    box-shadow: 0 -5px rgb(204, 203, 203);
-}
-
-.the-icon-container:hover{
-    transform: scale(1.05);
-}
-
-.rock{
-    position: absolute;
-    left: -8rem;
-    top: -8rem;
-    background-image: var(--rock-gradient);
-    box-shadow: 0 8px rgb(151, 8, 37);
-}
-
-.rock .the-icon{
-    background-image: url("images/icon-rock.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
-}
-
-.paper{
-    position: absolute;
-    top: calc(-8rem);
-    right: -8rem;
-    background-image: var(--paper-gradient);
-    box-shadow: 0 8px rgb(50, 57, 186);
-}
-
-.paper .the-icon{
-    background-image: url("images/icon-paper.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
-}
-
-.scissors{
-    position: relative;
-    top: calc(100% - 15rem);
-    background-image: var(--scissors-gradient);
-    box-shadow: 0 8px rgb(151, 123, 10);
-}
-
-.scissors .the-icon{
-    background-image: url("images/icon-scissors.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
-}
-
 
 .weapon-container{
     display: flex;
@@ -119,6 +49,142 @@ body, html{
     transform: translate(-50%, -50%);
     height: 20rem;
     width: 20rem;
+}
+
+.step-2-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.side{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 1.5rem;
+    height: 20rem;
+    width: 12rem;
+}
+
+.side-title{
+    color: var(--white);
+    text-wrap: nowrap;
+    z-index: 99;
+}
+
+.shadow-container{
+    position: relative;
+    height: 16rem;
+    width: 16rem;
+}
+
+.shadow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.222);
+    border-radius: 100%;
+    min-height: 14rem;
+    min-width: 14rem;
+}
+
+.super-shadow{
+    min-width: 32rem;
+    min-height: 32rem;
+
+    /* background: rgb(0,0,0); */
+    background-color: none;
+}
+
+.the-icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16rem;
+    width: 16rem;
+    border-radius: 100%;
+    z-index: 2;
+    transition: 1s scale ease-out;
+}
+
+.the-icon{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 100%;
+    z-index: 3;
+    box-shadow: 0 -5px rgb(204, 203, 203);
+    box-shadow: 0 -5px rgb(204, 203, 203);
+}
+
+.weapon-container .the-icon-container:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.step-2-container .the-icon-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.weapon-container .rock{
+    position: absolute;
+    left: -8rem;
+    top: -8rem;
+}
+
+.rock{
+    background-image: var(--rock-gradient);
+    box-shadow: 0 8px rgb(151, 8, 37);
+}
+
+.rock .the-icon{
+    background-image: url("images/icon-rock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+}
+
+.weapon-container .paper{
+    position: absolute;
+    top: calc(-8rem);
+    right: -8rem;
+}
+
+.paper{
+    background-image: var(--paper-gradient);
+    box-shadow: 0 8px rgb(50, 57, 186);
+}
+
+.paper .the-icon{
+    background-image: url("images/icon-paper.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+}
+
+.weapon-container .scissors{
+    position: relative;
+    top: calc(100% - 15rem);
+}
+
+.scissors{
+    background-image: var(--scissors-gradient);
+    box-shadow: 0 8px rgb(151, 123, 10);
+}
+
+.scissors .the-icon{
+    background-image: url("images/icon-scissors.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
 }
 
 .connector{
@@ -142,15 +208,35 @@ body, html{
     border: 3px solid var(--header-outline);
     border-radius: 10px;
     align-items: center;
-    height: 200px;
+    height: 100%;
+    max-height: 200px;
 }
 
-.score-title{
+.ghost{
+    display: block;
+    color: transparent;
     font-size: 2.5rem;
     font-weight: 600;
     text-wrap: wrap;
+    width: 9.5rem;
+    height: 100%;
+}
+
+.score-title-container{
+    position: relative;
+}
+
+.score-title{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0%;
     color: white;
-    max-width: 2rem;
+    width: 2rem;
+    font-size: 2.5rem;
+    text-wrap: wrap;
+    font-weight: 600;
+    height: auto;
 }
 
 .score-container{
@@ -158,6 +244,7 @@ body, html{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem;
     gap: 0.1rem;
     height: 100%;
@@ -182,25 +269,76 @@ body, html{
 }
 
 .bottom-items{
+    position: relative;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 3.25rem;
+}
+
+.presentation{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.presentation-title{
+    font-weight: 700;
+    font-size: 5rem;
+    text-wrap: nowrap;
+    color: var(--white);
+}
+
+
+.replay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 5px;
+    width: 100vw;
+    max-width: 300px;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.replay:hover{
+    transform: scale(1.05);
 }
 
 .rules{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     padding: 1rem 2rem;
+    height: 3.25rem;
+    width: 100%;
+    max-width: 200px;
     border: 3px solid var(--header-outline);
     border-radius: 10px;
     text-align: center;
     font-size: 1.25rem;
+    font-weight: 600;
     color: var(--white);
     cursor: pointer;
-
 }
 
 .rules:hover{
-    transform: scale(1.1);
+    border: none;
+    background-color: var(--white);
+    color: var(--dark-text);
 }
 
 .background-for-rules{
@@ -213,6 +351,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
 }
 
 .rules-container{
@@ -224,7 +363,6 @@ body, html{
     border-radius: 10px;
     width: 100%;
     max-height: 500px;
-    width: 100%;
     max-width: 500px;
     padding: 3rem;
 }
@@ -237,6 +375,141 @@ body, html{
     width: 1.5rem;
     object-fit: contain;
     cursor: pointer;
+}
+
+
+@media (max-width: 1050px){
+
+    .weapon-container{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .the-icon-container{
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .step-2-container{
+        gap: 2rem;
+    }
+
+    .shadow{
+        min-height: 4rem;
+        min-width: 4rem;
+        max-height: 4rem;
+        max-width: 4rem;
+    }
+
+    .super-shadow{
+        min-width: 16rem;
+        min-height: 16rem;
+    }
+
+    .step-2-container .the-icon-container{
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .rock{
+        background-image: var(--rock-gradient);
+        box-shadow: 0 4px rgb(151, 8, 37);
+    }
+
+    .weapon-container .rock{
+        position: absolute;
+        left: -4rem;
+        top: -4rem;
+    }
+
+    
+    .paper{
+        background-image: var(--paper-gradient);
+        box-shadow: 0 4px rgb(50, 57, 186);
+    }
+    
+    .weapon-container .paper{
+        position: absolute;
+        top: calc(-4rem);
+        right: -4rem;
+    }
+
+    .scissors{
+        background-image: var(--scissors-gradient);
+        box-shadow: 0 4px rgb(151, 123, 10);
+    }
+
+    .weapon-container .scissors{
+        position: relative;
+        top: calc(100% - 8rem);
+    }
+
+    .connector{
+        height: 80%;
+        width: 80%;
+    }
+
+    .the-icon{
+        box-shadow: 0 -2px rgb(204, 203, 203);
+    }
+
+    .bottom-items{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0.25rem;
+    }
+
+    .rules{
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        max-width: 300px;
+        height: 4rem;
+        font-size: 2rem;
+        border-radius: 5px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 700px){
+
+    .container{
+        gap: 4rem;
+    }
+
+    .rules-container{
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+        border-radius: 0;
+    }
+
+    .score-title{
+        font-size: 2rem;
+    }
+
+    .score-container{
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .score-text{
+        font-size: 1.25rem;
+    }
+
+    .score{
+        font-size: 3rem;
+    }
+
+    .step-2-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .side{
+        height: 15rem;
+    }
 }
 
 
